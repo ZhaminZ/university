@@ -1,0 +1,121 @@
+{
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": [
+        "phone_book = {}\n",
+        "\n",
+        "def add_contact():\n",
+        "    name = input(\"Введите имя контакта: \").title()\n",
+        "    phone_number = input(\"Введите номер телефона: \")\n",
+        "    standardized_phone_number = \"+7\" + phone_number[-10:]\n",
+        "    phone_book[name] = standardized_phone_number\n",
+        "    print(\"Контакт успешно добавлен!\")\n",
+        "\n",
+        "def delete_contact():\n",
+        "    name = input(\"Введите имя контакта для удаления: \").title()\n",
+        "    if name in phone_book:\n",
+        "        del phone_book[name]\n",
+        "        print(\"Контакт успешно удален!\")\n",
+        "    else:\n",
+        "        print(\"Контакт не найден!\")\n",
+        "\n",
+        "def view_phone_book():\n",
+        "    if phone_book:\n",
+        "        print(\"Телефонная книга:\")\n",
+        "        for name, phone_number in phone_book.items():\n",
+        "            print(f\"{name}: {phone_number}\")\n",
+        "    else:\n",
+        "        print(\"Телефонная книга пуста!\")\n",
+        "\n",
+        "def change_phone_number():\n",
+        "    name = input(\"Введите имя контакта для изменения номера телефона: \").title()\n",
+        "    if name in phone_book:\n",
+        "        new_phone_number = input(\"Введите новый номер телефона: \")\n",
+        "        standardized_phone_number = \"+7\" + new_phone_number[-10:]\n",
+        "        phone_book[name] = standardized_phone_number\n",
+        "        print(\"Номер телефона успешно изменен!\")\n",
+        "    else:\n",
+        "        print(\"Контакт не найден!\")\n",
+        "\n",
+        "while True:\n",
+        "    print(\"Меню:\")\n",
+        "    print(\"1. Добавить контакт\")\n",
+        "    print(\"2. Удалить контакт\")\n",
+        "    print(\"3. Просмотреть телефонную книгу\")\n",
+        "    print(\"4. Изменить номер телефона\")\n",
+        "    print(\"5. Выйти\")\n",
+        "\n",
+        "    choice = input(\"Выберите действие: \")\n",
+        "\n",
+        "    if choice == \"1\":\n",
+        "        add_contact()\n",
+        "    elif choice == \"2\":\n",
+        "        delete_contact()\n",
+        "    elif choice == \"3\":\n",
+        "        view_phone_book()\n",
+        "    elif choice == \"4\":\n",
+        "        change_phone_number()\n",
+        "    elif choice == \"5\":\n",
+        "        break\n",
+        "    else:\n",
+        "        print(\"Неверный выбор. Попробуйте снова.\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1s2dZT57ZM4I",
+        "outputId": "686eb3d5-1851-4f76-8e2f-9364b7052fc6"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Меню:\n",
+            "1. Добавить контакт\n",
+            "2. Удалить контакт\n",
+            "3. Просмотреть телефонную книгу\n",
+            "4. Изменить номер телефона\n",
+            "5. Выйти\n",
+            "Выберите действие: 1\n",
+            "Введите имя контакта: Жамин жалилов\n",
+            "Введите номер телефона: 9051377435\n",
+            "Контакт успешно добавлен!\n",
+            "Меню:\n",
+            "1. Добавить контакт\n",
+            "2. Удалить контакт\n",
+            "3. Просмотреть телефонную книгу\n",
+            "4. Изменить номер телефона\n",
+            "5. Выйти\n",
+            "Выберите действие: 3\n",
+            "Телефонная книга:\n",
+            "Жамин Жалилов: +79051377435\n",
+            "Меню:\n",
+            "1. Добавить контакт\n",
+            "2. Удалить контакт\n",
+            "3. Просмотреть телефонную книгу\n",
+            "4. Изменить номер телефона\n",
+            "5. Выйти\n",
+            "Выберите действие: 5\n"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Добро пожаловать в Colaboratory!",
+      "toc_visible": true,
+      "provenance": []
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
