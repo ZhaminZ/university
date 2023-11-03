@@ -1,0 +1,57 @@
+phone_book = {}
+
+def add_contact():
+    name = input("Введите имя контакта: ").title()
+    phone_number = input("Введите номер телефона: ")
+    standardized_phone_number = "+7" + phone_number[-10:]
+    phone_book[name] = standardized_phone_number
+    print("Контакт успешно добавлен!")
+
+def delete_contact():
+    name = input("Введите имя контакта для удаления: ").title()
+    if name in phone_book:
+        del phone_book[name]
+        print("Контакт успешно удален!")
+    else:
+        print("Контакт не найден!")
+
+def view_phone_book():
+    if phone_book:
+        print("Телефонная книга:")
+        for name, phone_number in phone_book.items():
+            print(f"{name}: {phone_number}")
+    else:
+        print("Телефонная книга пуста!")
+
+def change_phone_number():
+    name = input("Введите имя контакта для изменения номера телефона: ").title()
+    if name in phone_book:
+        new_phone_number = input("Введите новый номер телефона: ")
+        standardized_phone_number = "+7" + new_phone_number[-10:]
+        phone_book[name] = standardized_phone_number
+        print("Номер телефона успешно изменен!")
+    else:
+        print("Контакт не найден!")
+
+while True:
+    print("Меню:")
+    print("1. Добавить контакт")
+    print("2. Удалить контакт")
+    print("3. Просмотреть телефонную книгу")
+    print("4. Изменить номер телефона")
+    print("5. Выйти")
+
+    choice = input("Выберите действие: ")
+
+    if choice == "1":
+        add_contact()
+    elif choice == "2":
+        delete_contact()
+    elif choice == "3":
+        view_phone_book()
+    elif choice == "4":
+        change_phone_number()
+    elif choice == "5":
+        break
+    else:
+        print("Неверный выбор. Попробуйте снова.")
